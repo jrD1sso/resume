@@ -1,0 +1,843 @@
+@import "_mixins";
+@import "_base";
+
+/* Home
+*********/
+main#home {
+    padding-top: .5rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    
+    button#post-it-here {
+        @extend %fixed-post-btn;
+    }
+    
+    #post-it-modal {
+        @extend %post-modal;
+    }
+    
+    /* ---------- HOME BODY ---------- */
+    #posts-show-type {
+        height: 5px;
+        margin-bottom: 13px;
+        margin-top: -10px;
+    }
+    
+    #posts-show-type > a {
+        color: #4e4d4d;
+        font-size: 1.3rem;
+    }
+    
+    #posts-show-type > a:after {
+        content: none;
+    }
+    
+    #posts-show-type ul {
+        padding: 0;
+        margin-top: -15px;
+        min-width: unset;
+        text-align: unset;
+        left: 46px!important;
+    }
+    
+    #posts-show-type li {
+        color: #c3c3c3;
+        font-size: .9rem;
+        cursor: pointer;
+        @include make-transition($on: color, $sec: .1);
+    }
+    #posts-show-type li:first-child {
+        border-bottom: 1px solid #ccc;
+    }
+    
+    #posts-show-type li.active {
+        cursor: default;
+    }
+    
+    #posts-show-type li.active,
+    #posts-show-type li:active,
+    #posts-show-type li:hover {
+        color: $crimson;
+    }
+    
+    .post {
+        @extend %post;
+        margin-bottom: .75rem;
+        
+        .post-text,
+        .post-text-mini {
+            padding-bottom: .5rem;
+            margin-bottom: .5rem;
+            border-bottom: 1px solid #ccc;
+            font-family: 'Source Sans Pro';
+            word-spacing: 1px;
+        }
+        
+        div.d-flex.justify-content-between {
+            font-size: .85rem;
+        }
+        
+        .gotCoffee {
+            color: #b1b1b1;
+        }
+        
+        .gotCoffee .icon {
+            @include make-transition($on: color);
+            cursor: pointer;
+        }
+        
+        .gotCoffee.liked .icon {
+            color: #f9884a;
+        }
+    }
+}
+
+/* myBlog
+***********/
+main#myBlog {
+    #aboutMe-col,
+    #myPosts-col {padding: 0 10px;}
+    
+    #user-img-modal .modal-header,
+    #cover-img-modal .modal-header {
+        padding: 10px 15px 6px;
+    }
+    
+    #user-img-modal .modal-dialog {
+        max-width: 380px;
+    }
+    
+    #user-img-modal img.img-thumbnail,
+    #cover-img-modal img.img-thumbnail {
+        max-height: 350px;
+    }
+    
+    aside {
+        > div.box {
+            @include make-box-shadow;
+            @include bg-color;
+            padding: .75rem .8rem;
+            border-radius: .25rem;
+            margin-bottom: .8rem;
+        }
+        
+        #whose-blog {
+            padding-bottom: 1.05rem;
+
+            #cover-img {
+                background: url('../images/five-ways_african-kids.jpg') no-repeat center center $dark;
+                background-size: cover;
+                width: 100%;
+                height: 170px;
+                border-top-right-radius: .25rem;
+                border-top-left-radius: .25rem;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            
+            #user-img {
+                margin-top: -50px;
+                height: 110px;
+                cursor: pointer;
+            }
+            
+            h5 {
+                margin-top: .7rem;
+                margin-bottom: .01rem;
+                padding-left: .8rem;
+                padding-right: .8rem;
+            }
+            
+            p {
+                color: #888;
+                font-size: .85rem;
+                line-height: 1.35;
+                padding-left: .8rem;
+                padding-right: .8rem;
+            }
+        }
+        
+        #intro hr {
+            margin: .5rem -.8rem;
+        }
+        
+        #intro p {
+            color: #888;
+            font-size: .95rem;
+            padding: .25rem 0 .25rem 1.3rem;
+            position: relative;
+        }
+        
+        #intro p:last-child {
+            padding-bottom: 0;
+        }
+        
+        #intro .intro-icon::before {
+            font-size: .95rem;
+            position: absolute;
+            left: 0;
+            top: 5px;
+        }
+        
+        #intro .my-intro {
+            color: $font;
+            font-size: .9rem;
+        }
+        
+        #contact > .btn {
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        #contact > .btn span:before {
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            font-size: .8rem;
+        }
+    }
+    
+    #posts-types {
+        margin-right: .5rem;
+    }
+    
+    #posts-types li {
+        @include make-transition($on: color);
+        padding: 5px 0 5px 10px;
+        cursor: pointer;
+    }
+    
+    #posts-types li.active {
+        cursor: default;
+    }
+    
+    #posts-types li.active,
+    #posts-types li:hover {
+        @include color($crimson);
+    }
+    
+    #myPosts-col .album-link {
+        color: $crimson;
+    }
+    
+    #my-posts {
+        margin: 0;
+    }
+    
+    div.post-container {
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+    
+    .post {
+        @extend %post;
+    }
+    
+    #vibes-modal .modal-footer {
+        justify-content: space-between;
+    }
+    
+    button#post-it-here {
+        @extend %fixed-post-btn;
+    }
+    
+    #post-it-modal {
+        @extend %post-modal;
+    }
+    
+    #change-user-img-modal .modal-body,
+    #change-cover-img-modal .modal-body {
+        padding: 15px 0;
+        margin: 0 auto;
+    }
+    
+    .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+    }
+
+    .cropit-preview-image-container {
+        cursor: move;
+    }
+    
+    #change-user-img-modal .cropit-preview {
+        width: 250px;
+        height: 250px;
+    }
+    
+    #change-cover-img-modal .cropit-preview {
+        width: 420px;
+        height: 170px;
+    }
+    
+}
+
+/* Settings
+*************/
+main#settings {
+    #settings-list {
+        background-color: #fff;
+        margin-bottom: 1rem;
+    }
+    
+    #settings-list a {
+        margin: 0 .5rem;
+        color: $gray;
+    }
+    
+    #settings-list a.active {
+        color: #24c570;
+    }
+    
+    #settings-tabContent .col-md-8.offset-md-2 {
+        background-color: #fff;
+        border-radius: .25rem;
+    }
+    
+    #settings-tabContent input[type="text"],
+    #settings-tabContent input[type="date"],
+    #settings-tabContent select {
+        margin-left: 15px;
+        margin-right: -15px;
+        margin-top: -4px;
+    }
+    
+    #list-account ul {
+        line-height: 1.6;
+    }
+    
+    #list-account li a {
+        color: $font;
+        display: block;
+        padding: .5rem 15px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+    }
+    
+    #list-account li a:hover {
+        color: $crimson;
+    }
+    
+    #list-account li:last-child a {
+        border-bottom: none;
+    }
+    
+     #list-blog input[type="submit"] {
+        background-color: #3fe68e!important;
+        border-color: #3fe68e!important;
+    }
+    
+    #list-posts input[type="submit"] {
+        background-color: #3fe68e!important;
+        border-color: #3fe68e!important;
+    }
+    
+    .modal li.user-container {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        display: -ms-flexbox;
+        justify-content: space-between;
+        -ms-flex-pack: justify;
+        align-items: center;
+        -ms-flex-align: center;
+    }
+    
+    .modal li.user-container:first-child {
+        padding-top: 0;
+    }
+    
+    .modal li.user-container:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .modal a.user {
+        color: $font;
+    }
+    
+    .modal a.user::before {
+        content: "\00a0";
+    }
+    
+    .modal li.user-container .icon {
+        cursor: pointer;
+        @include make-transition($on: color);
+    }
+    
+    .modal li.user-container .icon.icon-check-circle {
+        color: $green;
+    }
+    
+    .modal li.user-container .icon.icon-remove-circle {
+        color: red;
+    }
+    
+    .modal li.user-container .icon.icon-check-circle:hover,
+    .modal li.user-container .icon.icon-remove-circle:hover {
+        color:$gray;
+    }
+}
+    .popover {
+        top: -58px!important;
+        left: 5px!important;
+    };
+    .popover .arrow {top: 50%!important;};
+
+/* Calendar
+*************/
+main#calendar {
+    #calendar-container {
+        text-transform: capitalize;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        border-radius: 0.25rem;
+        padding-bottom: .1rem;
+        @include make-box-shadow;
+        @include bg-color;
+        
+        header .month {
+            @include bg-color($yellow);
+            @include color($white);
+            padding: .7rem 0;
+            margin-bottom: 0;
+        }
+        
+        header .month small {font-size: 60%;}
+        
+        header a.btn {
+            @include color(#7b7549);
+            @include make-transition($on: color, $sec: .10);
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            top: .5rem;
+            width: 5px;
+            height: 32px;
+            font-size: 17px;
+        }
+        
+        header a.btn-next {
+            right: 4.5rem;
+        }
+        
+        header a.btn-prev {
+            left: 4.5rem;
+        }
+        
+        header a.btn:hover {@include color($white);}
+        
+        header a.btn-next:before {position: absolute; right: 0;}
+        
+        header a.btn-prev:before {position: absolute; left: 0;}
+        
+        table {
+            width: 100%;
+        }
+        
+        thead {
+            @include color($darkblue);
+            font-size: .8rem;
+            font-weight: 500;
+            border-bottom: 1px solid $lightgray;
+        }
+        
+        td {
+            padding: 0.5rem 0;
+        }
+        
+        .day {
+            color: #cbd1d2;
+            display: inline-block;
+            width: 2em;
+            height: 2em;
+            line-height: 1.8em;
+            font-size: .75rem;
+            border-radius: 50%;
+            border: 2px solid transparent;
+        }
+        
+        .day.today {
+            border: 2px dotted $green;
+            color: $font;
+        }
+        
+        .day.wrong-month {
+            display: none;
+        }
+        
+        .day.earn {
+            background: $green;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .day.lost {
+            background: $pink;
+            color: #fff;
+        }
+    }
+    
+    #show-day-header {
+        @include bg-color(#17de6b);
+        color: #fff;
+        text-align: center;
+        padding: .5rem 0;
+        margin-bottom: 1rem;
+        border-radius: .25rem;
+    }
+    
+    div.post-container {
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+    
+    .post {
+        @extend %post;
+    }
+}
+
+/* Album
+**********/
+#album {
+    .album-container {
+        background-color: $white;
+        padding-bottom: .2rem;
+        border-radius: .25rem;
+        margin-bottom: 1rem;
+        
+        > a.btn.rounded-circle {cursor: pointer;}
+        
+        img {
+            width: 100%;
+            max-height: 350px;
+        }
+        
+        .album-about {
+            text-align: right;
+            padding: .5rem;
+            
+            h5 {
+                text-align: left;
+                margin-bottom: 0;
+            }
+
+            p {
+                text-align: left;
+                font-size: .8rem;
+                color: $gray;
+            }
+            
+            a {
+                color: #fff!important;
+            }
+        }
+    }
+}
+
+/* Album-Prev
+**************/
+#album-prev {
+    .post {
+        @extend %post;
+        margin-bottom: .75rem;
+        
+        .post-text {display: none;}
+        
+        .post-text,
+        .post-text-mini {
+            padding-bottom: .5rem;
+            margin-bottom: .5rem;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        div.d-flex.justify-content-between {
+            font-size: .85rem;
+        }
+        
+        .who {
+            display: none;
+        }
+    }
+    
+    #show-post-modal .post-text,
+    #show-post-modal .post-type,
+    #show-post-modal .who {display: block;}
+}
+
+/* Vibes
+**********/
+#vibes {
+    .filter {
+        padding: .75rem 0 1rem 0;
+        text-align: center;
+    
+        li {
+            color: #b1b1b1;
+            display: inline;
+            padding: .25rem;
+            padding-bottom: 0;
+            margin: 0 .25rem;
+            border-bottom: 1.5px solid transparent;
+            cursor: pointer;
+            @include make-transition($on: color);
+        }
+        
+        li.active {
+            color: $light;
+            border-color: $light;
+            cursor: default;
+        }
+    }
+    
+    .post-container {
+        padding: 0;
+    }
+    
+    .post {
+        @extend %post;
+        background-color: $white;
+        padding: .6rem;
+        border-radius: .25rem;
+        margin-bottom: 1rem;
+
+        .post-img {
+            margin-bottom: .3rem!important;
+        }
+
+        p.post-text,
+        p.post-text-mini {
+            color: #888;
+            font-size: .95rem;
+            margin-bottom: .5rem;
+            padding-bottom: .5rem;
+            border-bottom: 1px solid #ccc;
+            font-family: 'Source Sans Pro';
+            word-spacing: 2px;
+        }
+        
+        .slash,
+        .post-mark {
+            color: #b1b1b1;
+        }
+        
+        .post-mark {
+            cursor: pointer;
+        }
+    }
+    
+    .post-container .icon-mark-o {color: #f9884a;}
+}
+
+/* Payment
+************/
+#payment {
+    font-family: 'Source Sans Pro';
+    word-spacing: 2px;
+    #payment-list {
+        background-color: #fff;
+        margin-bottom: 1rem;
+        padding: .5rem .5rem 1rem;
+    }
+    
+    #payment-list a {
+        font-size: 1.2rem;
+        margin: 0 .5rem;
+        padding-bottom: 3px;
+        border-bottom: 1px solid transparent;
+    }
+    
+    #payment-list a#list-billing-list {
+        color: #59cd90;
+    }
+    
+    #payment-list a#list-billing-list.active {
+        border-color: #59cd90;
+    }
+    
+    #payment-list a#list-gift-list {
+        color: #ee6352;
+    }
+    
+    #payment-list a#list-gift-list.active {
+        border-color: #ee6352;
+    }
+    
+    #payment-tabContent .content {
+        background-color: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    
+    #list-billing table {
+        color: #999;
+    }
+    
+    #list-billing table tr:last-child {
+        color: #666;
+    }
+    
+    #list-billing a.btn.next {
+        background-color: #3fe68e;
+        border-color: #3fe68e;
+        color: #fff;
+    }
+    
+    #list-billing a.btn.next:hover,
+    #list-billing a.btn.next:active {
+        background-color: #59cd90;
+        border-color: #59cd90;
+    }
+    
+    #list-gift a.btn.next {
+        background-color: #ec786a;
+        border-color: #ec786a;
+        color: #fff;
+    }
+    
+    #list-gift a.btn.next:hover,
+    #list-gift a.btn.next:active {
+        background-color: #ee6352;
+        border-color: #ee6352;
+    }
+    
+    #list-gift li {
+        background-color: #f8f9fa;
+        display: inline-block;
+        margin: 5px;
+        padding: 10px;
+        border-radius: .25rem;
+        cursor: pointer;
+    }
+    
+    #list-gift li:hover,
+    #list-gift li.selected {
+        background-color: #ec786a;
+        color: #fff;
+        
+    }
+    
+    #list-gift ul input {
+        color: #ec786a;
+    }
+    
+}
+
+/* Payment2
+************/
+#payment2 {
+    font-family: 'Source Sans Pro';
+    word-spacing: 2px;
+    
+    input[type="text"],
+    input[type="date"],
+    select {
+        margin-left: 15px;
+        margin-right: -15px;
+        margin-top: -4px;
+    }
+    
+}
+
+/* About
+**********/
+#about {
+    font-family: 'Source Sans Pro';
+    word-spacing: 2px;
+    
+    .fonty {
+        font-family: Kalam;
+        word-spacing: 0;
+    }
+    
+    h3 {
+        color: #ffe4c4;
+        background-color: #455565;
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: .25rem;
+    }
+    
+    span.highlight {
+        background-color: #ecf6ff;
+    }
+    
+    nav {
+        border-bottom: 1px solid #ccc;
+    }
+
+     #how-tab a.nav-item {
+        color: #97adc3;
+        padding: 0 .2rem .5rem;
+    }
+    
+    #how-tab a.nav-item.active {
+        color: #556c84;
+        font-weight: bold;
+    }
+    
+    #how-tabContent .img-container {
+        padding: .5rem;
+        margin-bottom: .5rem;
+        border-radius: .25rem;
+        background-color: #cfe3f5;
+        text-align: center;
+    }
+    
+    #how-tabContent .what-container {
+        color: #556c84;
+        padding: .5rem;
+    }
+    
+    #how-tabContent .what-container li span.number {
+        background-color: #ffe4c4;
+        padding: .25rem .5rem;
+        border-radius: 50%;
+        font-weight: bold;
+    }
+    
+}
+
+/* Login
+**********/
+body#login-body {
+    position: static;
+    width: 100%;
+
+    #login {
+        background: linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.2)),
+                url('../images/const/login.jpeg') no-repeat center center #333;
+        background-size: cover;
+        position: relative;
+        min-height: 100vh;
+        height: 100%;
+        overflow: hidden;
+        padding-bottom: 15px;
+    }
+    
+    #brand {
+        margin-top: 20vh;
+    }
+    
+    #brand small {
+        color: #ffeb00!important;
+    }
+
+    #login-content {
+        border-radius: .25rem;
+        background-color: #0000006b;
+        margin: auto;
+        padding: 1.2rem 1rem .75rem;
+    }
+    
+    .gray-text {
+        color: #a9a9a9;
+    }
+}
+
+@import "_responsive";

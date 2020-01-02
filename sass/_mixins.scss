@@ -1,0 +1,20 @@
+@mixin make-transition($on: all, $sec: .3) {
+    transition: $on #{$sec}s ease-in-out;
+    -webkit-transition: $on #{$sec}s ease-in-out;
+    -moz-transition: $on #{$sec}s ease-in-out;
+    -o-transition: $on #{$sec}s ease-in-out;
+}
+
+@mixin make-box-shadow($top: 0, $left: 0, $blur: 35px, $color: rgba(61, 61, 75, 0.2), $inset:"") {
+    box-shadow: $top $left $blur $color #{$inset};
+    -webkit-box-shadow: $top $left $blur $color #{$inset};
+    -moz-box-shadow: $top $left $blur $color #{$inset};
+}
+
+@mixin color($color: $crimson) {
+    color: $color!important;
+}
+
+@mixin bg-color($bg-color: $white) {
+    background-color: $bg-color!important;
+}

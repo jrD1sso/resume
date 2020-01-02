@@ -1,0 +1,99 @@
+/* =========== Responsive =========== */
+/* before medium devices */
+@media(max-width: 767.98px) {
+    body {
+        top: 56px;
+        right: 0; left: 0;
+        line-height: 1.5;
+    }
+      
+    .post p.post-text {
+        line-height: 1.2;
+        margin-top: 1px!important;
+    }
+    
+    #inbox-modal {
+        .msg-box {
+            padding-left: 4.2rem;
+        }
+        
+        .all-msg .user-img {
+            left: 9px!important;
+            width: 50px!important;
+        }
+    }
+    
+    main#home {
+        left: 0!important;
+    }
+    
+    main#home button#post-it-here,
+    main#myBlog button#post-it-here {right: 7px;}
+     
+    #myBlog #change-cover-img-modal .cropit-preview {
+        width: 300px!important;
+    }
+}
+
+@media(max-width: 500px) {
+    body#login-body #login-content {
+        width: 85%!important;
+    }
+    
+    main#myBlog #myPosts-col > #myPosts-links,
+    main#about #how-tab {
+        font-size: .9rem;
+    }
+}
+
+@media(min-width: 768px) {
+    body#login-body #login-content {
+        width: 65%!important;
+    }
+}
+
+/* for Masonry */
+@media(min-width: 992px) {
+    main#home #global-posts {margin: 0!important;}
+    
+    main#home .post-container {padding: 0!important;}
+    
+    main#myBlog #my-posts {margin: 0!important;}
+    
+    main#myBlog .post-container {
+        max-width: calc(50% - 7.5px);
+        padding: 0!important;
+    }
+    
+    main#vibes .post-container {
+        max-width: calc(33.333333% - 4px);
+    }
+}
+
+@media(min-width: 1200px) {
+    main#home .post-container {
+        max-width: calc(33.333333% - 10px);
+    }
+    
+    main#vibes .post-container {
+        max-width: calc(33.333333% - 10px);
+    }
+}
+
+@media(min-width: 992px) and (max-width: 1199.98px) {
+    main#home .post-container {
+        max-width: calc(50% - 7.5px);
+    }
+    
+    main#vibes .post-container {
+        max-width: calc(50% - 7.5px);
+    }
+}
+
+/* specific for the index page */
+@media(max-width: 1100px) {
+    .post p.post-text {
+        line-height: 1.3;
+        margin-top: 2px!important;
+    }
+}
